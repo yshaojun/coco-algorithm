@@ -3,6 +3,11 @@ const assert = require('assert')
 function findGreaterThan(arr, num) {
   function _find(l, h) {
     if (l === h) return arr[h] >= num ? h : h + 1
+    if (l + 1 === h) {
+      if (arr[l] >= num) return l;
+      if (arr[h] >= num) return h;
+      return h + 1
+    }
 
     const m = Math.floor((l + h) / 2)
 
